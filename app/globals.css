@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* ==============================================================================
+ * YACHIYO.NET (ヤチヨの部屋) DESIGN TOKENS & RETRO JAPANESE WEB AESTHETIC
+ * Based on the authentic early-2000s Japanese personal homepage (HP)
+ * ============================================================================== */
+
+:root {
+  --yachiyo-body-bg: #87D4DA;
+  --yachiyo-main-bg: #D0F0F5;
+  --yachiyo-sidebar-bg: #FDFAC8;
+  --yachiyo-border-gray: #808080;
+  --yachiyo-border-light: #D3D3D3;
+  --yachiyo-accent-orange: #D26432;
+  --yachiyo-link-blue: #0000CD;
+  --yachiyo-link-hover: #ff6600;
+  --yachiyo-table-border: #487A8A;
+  --yachiyo-marquee-bg: #0f5e6d;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--yachiyo-body-bg);
+  font-family: 'MS PGothic', 'Osaka', 'Gulim', 'Dotum', 'Meiryo', -apple-system, BlinkMacSystemFont, monospace, sans-serif;
+  font-size: 14.5px;
+  color: #333333;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Two-column layout matching yachiyo.net */
+.yachiyo-container {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  display: flex;
+  min-height: 100vh;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  box-sizing: border-box;
+  background-color: var(--yachiyo-main-bg);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Left Sidebar */
+.yachiyo-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: var(--yachiyo-sidebar-bg);
+  padding: 16px;
+  border-right: 1px solid var(--yachiyo-border-gray);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+}
+
+.yachiyo-menu-header {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 2px dotted #cc9966;
+  padding-bottom: 4px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.yachiyo-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.yachiyo-menu-list li {
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.yachiyo-menu-list a {
+  color: var(--yachiyo-link-blue);
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: underline;
+  transition: color 0.1s;
+}
+
+.yachiyo-menu-list a:hover {
+  color: var(--yachiyo-link-hover);
+}
+
+.yachiyo-menu-icon {
+  color: var(--yachiyo-accent-orange);
+  font-size: 16px;
+  margin-right: 3px;
+}
+
+/* Blinking NEW tag */
+.yachiyo-new-tag {
+  color: #e11d48;
+  font-size: 11px;
+  font-weight: bold;
+  vertical-align: top;
+  animation: yachiyoBlink 1s step-end infinite;
+}
+
+@keyframes yachiyoBlink {
+  50% { opacity: 0; }
+}
+
+/* Main Content Area */
+.yachiyo-main-content {
+  flex: 1;
+  padding: 24px 32px;
+  background-color: var(--yachiyo-main-bg);
+  border-left: 7px solid var(--yachiyo-border-light);
+  box-shadow: inset 2px 0 0 var(--yachiyo-border-gray);
+  min-width: 0;
+}
+
+/* Marquee Warning / News Bar */
+.yachiyo-warning-bar {
+  background-color: var(--yachiyo-marquee-bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 4px 4px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 4px 0;
+  margin: 12px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* 7-Segment / Pixel Counter */
+.yachiyo-counter-box {
+  background: #ffffff;
+  border: 2px solid var(--yachiyo-table-border);
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #000000;
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Web Clap (Web拍手) Button */
+.yachiyo-clap-btn {
+  background: #ffffff;
+  color: #FF7733;
+  padding: 3px 12px;
+  border: 2px solid #FF7733;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 1px 1px 0 rgba(255, 119, 51, 0.2);
+  transition: all 0.1s;
+}
+
+.yachiyo-clap-btn:hover {
+  background: #fff5ee;
+  transform: translateY(-1px);
+}
+
+.yachiyo-clap-btn:active {
+  transform: translateY(1px);
+}
+
+/* Retro Table */
+.yachiyo-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  background-color: transparent;
+  border: 2px solid var(--yachiyo-table-border);
+  font-size: 13px;
+}
+
+.yachiyo-table th {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+  padding: 4px 8px;
+  border: 1px solid var(--yachiyo-table-border);
+  font-weight: bold;
+  text-align: center;
+}
+
+.yachiyo-table td {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--yachiyo-table-border);
+  padding: 4px 8px;
+  color: #111;
+}
+
+/* Retro Panel Box */
+.yachiyo-panel {
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--yachiyo-table-border);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+
+/* 88x31 Banner Badge */
+.yachiyo-badge-88 {
+  width: 88px;
+  height: 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #666;
+  font-size: 9px;
+  font-weight: bold;
+  background: #111;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 1px 1px 0 #fff inset, -1px -1px 0 #000 inset;
+}
